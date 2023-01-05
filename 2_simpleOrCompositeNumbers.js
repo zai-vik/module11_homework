@@ -1,19 +1,21 @@
-let x = prompt('Введите цифру или число не больше 1000:');
+let str;
+let number = prompt('Введите число');
 
-simpleOrCompositeNumbers(x);
-
-function simpleOrCompositeNumbers(x) {
-  if (x > 1000) {
-    alert('Данные неверны!');
-  } else {
-    if (x % 2 != 0) {
-      alert('Число простое');
-    } else if (x == 1 || x == 0) {
-      alert('Ни составное, ни простое число');
-    } else if (x == 2) {
-      alert('Число простое');
-    } else {
-      alert('Число составное');
+function primeOrDifficultNumber(number) {
+  let res = 0;
+  for (let i = 1; i < number; i++) {
+    if (number % i == 0) {
+      res++;
     }
   }
+  if (number > 1000) {
+    str = 'Данные неверны';
+  } else if (res <= 2) {
+    str = ` Число ${number} простое`;
+  } else if (res > 2) {
+    str = ` Число ${number} непростое`;
+  }
+  return str;
 }
+    
+console.log(primeOrDifficultNumber(number));
